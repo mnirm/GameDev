@@ -22,6 +22,6 @@ Platformer
 - Creating UML Class Diagram
 - Using SOLID principles more frequently
 - Some programming patterns
+    - Command pattern
 - Learned some new GIT commands
 - Working with VIM for editing files and commits
-
