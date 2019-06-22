@@ -10,7 +10,6 @@ namespace PlatformerJarno
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Sprite sprite;
 
         public Game1()
         {
@@ -27,7 +26,6 @@ namespace PlatformerJarno
 
         protected override void LoadContent()
         {
-            sprite = new Sprite(Content, "blokPlayer", new Vector2(0,0), scale: 5);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -51,7 +49,6 @@ namespace PlatformerJarno
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            sprite.Draw(spriteBatch);
 
             spriteBatch.End();
             base.Draw(gameTime);
