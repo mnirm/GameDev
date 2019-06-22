@@ -23,3 +23,5 @@ Platformer
 - Using SOLID principles more frequently
 - Some programming patterns
 - Learned some new GIT commands
+- Working with VIM for editing files and commits
+
