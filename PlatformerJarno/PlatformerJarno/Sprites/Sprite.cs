@@ -15,15 +15,15 @@ namespace PlatformerJarno.Sprites
         // Properties
         private Texture2D _texture;
         private float _scale;
+        private Vector2 _position;
 
-        public Vector2 Position { get; set; }
         public Rectangle ViewRectangle { get; set; }
 
         // Constructor
         public Sprite(ContentManager content, string path, Vector2 startPosition, float scale = 1)
         {
             _texture = content.Load<Texture2D>(path);
-            Position = startPosition;
+            _position = startPosition;
 
             ViewRectangle = new Rectangle(0,0, _texture.Width, _texture.Height);
             _scale = scale;
@@ -32,11 +32,12 @@ namespace PlatformerJarno.Sprites
         // Methods
 
         // Draw Method, Draws the sprite on the screen with different properties.
-        public void Draw(SpriteBatch spriteBatch, bool flipped)
+        public void Draw(SpriteBatch spriteBatch, bool flipped = false, Vector2 position = new Vector2())
         {
             SpriteEffects spriteEffect = (flipped) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            if(position != new Vector2()) _position = position;
 
-            spriteBatch.Draw(_texture, Position, ViewRectangle, Color.White, 0f, Vector2.Zero, _scale, spriteEffect, 0f);
+            spriteBatch.Draw(_texture, _position, ViewRectangle, Color.White, 0f, Vector2.Zero, _scale, spriteEffect, 0f);
         }
     }
 }

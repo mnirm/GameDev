@@ -26,7 +26,6 @@ namespace PlatformerJarno
 
         protected override void LoadContent()
         {
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
@@ -48,7 +47,6 @@ namespace PlatformerJarno
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
 
             spriteBatch.End();
             base.Draw(gameTime);
