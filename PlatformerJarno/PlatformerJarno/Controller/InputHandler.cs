@@ -14,6 +14,7 @@ namespace PlatformerJarno.Controller
         // Properties
         private Player _player;
         private ControlAction _currentAction;
+        private Commands _commands;
 
         public enum ControlAction
         {
@@ -24,6 +25,7 @@ namespace PlatformerJarno.Controller
         public InputHandler(Player player)
         {
             _player = player;
+            _commands = new Commands();
         }
 
         //Method
@@ -37,6 +39,8 @@ namespace PlatformerJarno.Controller
             else if (state.IsKeyDown(Keys.Up)) _currentAction = ControlAction.Jump;
             else if (state.IsKeyDown(Keys.Space)) _currentAction = ControlAction.Attack;
             else _currentAction = ControlAction.Idle;
+
+            _commands.Excecute(_player, _currentAction);
         }
     }
 }
