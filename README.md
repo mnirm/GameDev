@@ -1,6 +1,8 @@
 # GameDev Project
 Written in C# with MonoGame framework.
 
+Platformer game to exercise my skills, learn new things about C# and exercise my OOP.
+
 ## Coding practices
 > OOP  
 > SOLID  
@@ -15,3 +17,8 @@ States:
 - Losing or Winning screen
 
 Platformer
+
+# What I learned
+- Creating UML Class Diagram
+- Using SOLID principles more frequently
+- Some programming patterns
