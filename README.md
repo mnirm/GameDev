@@ -2,10 +2,10 @@
 Written in C# with MonoGame framework.
 
 ## Coding practices
-> OOP
-> SOLID
-> Programming patterns 
-> Clean code
+> OOP  
+> SOLID  
+> Programming patterns   
+> Clean code  
 
 ## Asked
 States:
