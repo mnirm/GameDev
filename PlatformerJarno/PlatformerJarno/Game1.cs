@@ -1,6 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using PlatformerJarno.Entities;
 using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno
@@ -10,7 +12,8 @@ namespace PlatformerJarno
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        private Player player;
+        private ICollection<Entity> entities;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,6 +29,8 @@ namespace PlatformerJarno
 
         protected override void LoadContent()
         {
+            entities = new List<Entity>();
+            player = new Player(Content, "blokPlayer", new Vector2(100,100), entities);
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
@@ -47,7 +52,7 @@ namespace PlatformerJarno
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
+            player.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

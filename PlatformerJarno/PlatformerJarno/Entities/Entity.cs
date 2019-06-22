@@ -40,13 +40,13 @@ namespace PlatformerJarno.Entities
         // Constructor
         protected Entity(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, int health = 5)
         {
-            sprite = new Sprite(content, path, startPosition);
+            sprite = new Sprite(content, path, startPosition, scale: 4f);
 
             Entities = entities;
             Entities.Add(this);
 
             Position = startPosition;
-
+             
             Health = new Health(health);
         }
 
