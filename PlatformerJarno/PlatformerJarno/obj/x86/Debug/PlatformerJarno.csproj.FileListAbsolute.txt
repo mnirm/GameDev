@@ -21,3 +21,4 @@ C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\Platfo
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.csproj.CopyComplete
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.exe
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.pdb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\blokPlayer.xnb
