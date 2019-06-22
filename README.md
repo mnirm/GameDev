@@ -13,10 +13,14 @@ Platformer game to exercise my skills, learn new things about C# and exercise my
 States:
 - Main menu
 - Settings menu
-- 2 Levels
+- 2 Levels (Switch through)  
 - Losing or Winning screen
 
-Platformer
+Platformer:
+- Move your player
+- Collision
+- Enemies
+- Shoot
 
 # What I learned
 - Creating UML Class Diagram

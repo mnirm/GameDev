@@ -7,6 +7,7 @@ using PlatformerJarno.Entities;
 
 namespace PlatformerJarno.Controller
 {
+    // Class to execute the actions he receives trough parameter
     class Commands: ICommand
     {
         public void Excecute(Player player, InputHandler.ControlAction action)

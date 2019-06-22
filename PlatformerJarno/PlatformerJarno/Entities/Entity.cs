@@ -57,5 +57,7 @@ namespace PlatformerJarno.Entities
         }
 
         public abstract void Update(GameTime gameTime);
+        public abstract void WalkLeft();
+        public abstract void WalkRight();
     }
 }

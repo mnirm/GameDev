@@ -9,6 +9,7 @@ using PlatformerJarno.Entities;
 
 namespace PlatformerJarno.Controller
 {
+    // Class for handling input of the user
     class InputHandler
     {
         // Properties

@@ -12,5 +12,7 @@ namespace PlatformerJarno.Movement
         Vector2 Movement { get; set; }
 
         void Update(GameTime gameTime);
+        void WalkLeft();
+        void WalkRight();
     }
 }

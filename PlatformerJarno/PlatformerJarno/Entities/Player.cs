@@ -34,20 +34,24 @@ namespace PlatformerJarno.Entities
 
         }
 
-        public void WalkLeft()
+        public override void WalkLeft()
         {
+
         }
 
-        public void WalkRight()
+        public override void WalkRight()
         {
+
         }
 
         public void Jump()
         {
+
         }
 
         public void Attack()
         {
+
         }
     }
 }
