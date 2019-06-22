@@ -18,6 +18,10 @@ namespace PlatformerJarno.Sprites
         private Vector2 _position;
 
         public Rectangle ViewRectangle { get; set; }
+        public float Scale
+        {
+            get { return _scale; }
+        }
 
         // Constructor
         public Sprite(ContentManager content, string path, Vector2 startPosition, float scale = 1)
