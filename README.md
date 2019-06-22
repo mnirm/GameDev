@@ -22,3 +22,4 @@ Platformer
 - Creating UML Class Diagram
 - Using SOLID principles more frequently
 - Some programming patterns
+- Learned some new GIT commands
