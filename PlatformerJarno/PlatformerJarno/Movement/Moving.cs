@@ -13,18 +13,20 @@ namespace PlatformerJarno.Movement
         // Properties
         private float _gravityForce = 0.5f;
         private Vector2 _movement;
+        private int _movementSpeed;
 
         // Constructor
-        public Moving()
+        public Moving(int movementSpeed = 100)
         {
+            _movementSpeed = movementSpeed;
         }
 
         // Methods
-        private void Gravity()
+        private void Gravity(bool touchGround)
         {
             _movement += Vector2.UnitY * _gravityForce;
             if (_gravityForce < 1.4f) _gravityForce *= 1.2f;
-            if (false) _gravityForce = 0.5f; // change to touch ground
+            if (touchGround) _gravityForce = 0.5f; // change to touch ground
         }
 
         public void Left()
@@ -39,25 +41,32 @@ namespace PlatformerJarno.Movement
 
         public void Jump()
         {
-            _movement = -Vector2.UnitY * 25;
+            _movement = -Vector2.UnitY * 30;
         }
 
-        public Vector2 Update(GameTime gameTime)
+        public Vector2 Update(GameTime gameTime, bool touchGround)
         {
-            Gravity();
+            Gravity(touchGround);
 
             _movement *= new Vector2(.9f,.9f);
-            SimulateFriction();
+            SimulateFriction(touchGround);
 
-            return _movement;
+            return _movement * (float) gameTime.ElapsedGameTime.TotalMilliseconds / _movementSpeed;
         }
 
-        private void SimulateFriction()
+        private void SimulateFriction(bool touchGround)
         {
-            if (false) // change to touch ground
+            if (touchGround) // change to touch ground
                 _movement -= _movement * Vector2.One * .08f;
             else
                 _movement -= _movement * Vector2.One * .02f;
+        }
+
+        public void StopMovingIfBlocked(Vector2 position, Vector2 oldPosition)
+        {
+            Vector2 lastMovement = position - oldPosition;
+            if(lastMovement.X == 0) _movement *= Vector2.UnitY;
+            if(lastMovement.Y == 0) _movement *= Vector2.UnitX;
         }
     }
 }

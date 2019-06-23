@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using PlatformerJarno.Animations;
 using PlatformerJarno.Controller;
 using PlatformerJarno.Movement;
+using PlatformerJarno.Terrain;
 
 
 namespace PlatformerJarno.Entities
@@ -20,13 +21,12 @@ namespace PlatformerJarno.Entities
     {
         // Properties
         private InputHandler _input;
-        private Animation _currentAnimation;
         private Animation _idleAnimation;
         private Animation _walkAnimation;
         private Animation _jumpAnimation;
 
         // Constructor
-        public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, scale, health)
+        public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, scale, health)
         {
             _input = new InputHandler(this);
             CreateAnimations(20, 20);
@@ -36,42 +36,48 @@ namespace PlatformerJarno.Entities
         public override void Update(GameTime gameTime)
         {
             _input.HandleInput();
-            _currentAnimation.Update(gameTime);
-            Position += move.Update(gameTime);
+            currentAnimation.Update(gameTime);
+
+            oldPosition = Position;
+            Position += move.Update(gameTime, collision.TouchingGround(CollisionRectangle));
+            Position = collision.TryMoveTo(oldPosition, Position, CollisionRectangle);
+            move.StopMovingIfBlocked(Position, oldPosition);
+
             Health.Update();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.ViewRectangle = _currentAnimation.CurrentFrame.SourceRectangle;
-            if (facing == Facing.Right) sprite.Draw(spriteBatch, position: Position);
-            if (facing == Facing.Left) sprite.Draw(spriteBatch, true, Position);
             Health.Draw(spriteBatch);
+            base.Draw(spriteBatch);
         }
-        
+
         public void Idle()
         {
-            _currentAnimation = _idleAnimation;
+            currentAnimation = _idleAnimation;
         }
 
         public override void WalkLeft()
         {
             facing = Facing.Left;
-            _currentAnimation = _walkAnimation;
+            currentAnimation = _walkAnimation;
             move.Left();
         }
 
         public override void WalkRight()
         {
             facing = Facing.Right;
-            _currentAnimation = _walkAnimation;
+            currentAnimation = _walkAnimation;
             move.Right();
         }
 
         public void Jump()
         {
-            _currentAnimation = _jumpAnimation;
-            move.Jump();
+            if (collision.TouchingGround(CollisionRectangle))
+            {
+                currentAnimation = _jumpAnimation;
+                move.Jump();
+            }
         }
 
         public void Attack()
@@ -137,7 +143,7 @@ namespace PlatformerJarno.Entities
             #endregion
 
             sprite.ViewRectangle = new Rectangle(0, 0, width, height);
-            _currentAnimation = _idleAnimation;
+            currentAnimation = _idleAnimation;
         }
     }
 }

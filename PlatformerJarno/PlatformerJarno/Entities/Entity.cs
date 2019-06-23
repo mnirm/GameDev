@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using PlatformerJarno.Animations;
 using PlatformerJarno.Collider;
 using PlatformerJarno.Movement;
 using PlatformerJarno.Sprites;
+using PlatformerJarno.Terrain;
 using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.Entities
@@ -20,6 +22,8 @@ namespace PlatformerJarno.Entities
         protected Vector2 oldPosition;
         protected Facing facing;
         protected Moving move;
+        protected Animation currentAnimation;
+        protected Collision collision;
         // Using ICollection<T> instead of List<T> because of OOP.
         // The interface defines the contract but not the implementation. The implementation could change.
         // A good object-oriented practice is to program towards the interface and not the implementation.
@@ -45,7 +49,7 @@ namespace PlatformerJarno.Entities
         }
 
         // Constructor
-        protected Entity(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, float scale = 1, int health = 5)
+        protected Entity(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, float scale = 1, int health = 5)
         {
             sprite = new Sprite(content, path, startPosition, scale: scale);
 
@@ -55,14 +59,18 @@ namespace PlatformerJarno.Entities
             Position = startPosition;
 
             facing = Facing.Right;
+
             move = new Moving();
+            collision = new Collision(terrain, entities);
             Health = new Health(health, content, this, scale);
         }
 
         // Methods
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, position: Position);
+            sprite.ViewRectangle = currentAnimation.CurrentFrame.SourceRectangle;
+            if (facing == Facing.Right) sprite.Draw(spriteBatch, position: Position);
+            if (facing == Facing.Left) sprite.Draw(spriteBatch, true, Position);
         }
 
         public abstract void Update(GameTime gameTime);
