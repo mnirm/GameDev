@@ -24,7 +24,6 @@ namespace PlatformerJarno.Entities
         // The interface defines the contract but not the implementation. The implementation could change.
         // A good object-oriented practice is to program towards the interface and not the implementation.
         protected ICollection<Entity> Entities;
-        public Vector2 Movement { get; set; }
         public Vector2 Position { get; set; }
         public Health Health { get; }
         public Rectangle CollisionRectangle
@@ -56,7 +55,6 @@ namespace PlatformerJarno.Entities
             Position = startPosition;
 
             facing = Facing.Right;
-            Movement = Vector2.Zero;
             move = new Moving();
             Health = new Health(health, content, this, scale);
         }
