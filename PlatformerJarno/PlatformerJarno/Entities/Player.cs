@@ -28,7 +28,7 @@ namespace PlatformerJarno.Entities
         public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, scale, health)
         {
             _input = new InputHandler(this);
-            CreateAnimations(19, 19);
+            CreateAnimations(20, 20);
         }
 
         // Methods
@@ -40,8 +40,9 @@ namespace PlatformerJarno.Entities
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (facing == Facing.Left) sprite.Draw(spriteBatch, position: Position);
-            if (facing == Facing.Right) sprite.Draw(spriteBatch, true, Position);
+            sprite.ViewRectangle = _currentAnimation.CurrentFrame.SourceRectangle;
+            if (facing == Facing.Right) sprite.Draw(spriteBatch, position: Position);
+            if (facing == Facing.Left) sprite.Draw(spriteBatch, true, Position);
         }
         
         public void Idle()
@@ -73,12 +74,12 @@ namespace PlatformerJarno.Entities
         {
             #region Idle
 
-            int y = 3;
+            int y = 2;
 
-            _idleAnimation = new Animation(15);
+            _idleAnimation = new Animation(8);
             for (int i = 0; i < 5; i++)
             {
-                Rectangle r = new Rectangle(5 + (i * width), y, width, height);
+                Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _idleAnimation.AddFrame(r);
             }
 
@@ -91,19 +92,19 @@ namespace PlatformerJarno.Entities
             _jumpAnimation = new Animation(15);
             for (int i = 0; i < 3; i++)
             {
-                Rectangle r = new Rectangle(5 + (i * width), y, width, height);
+                Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _jumpAnimation.AddFrame(r);
                 j = i;
             }
             --y;
-            _jumpAnimation.AddFrame(new Rectangle(5 + (j * width), y, width, height));
+            _jumpAnimation.AddFrame(new Rectangle((5 + (j * (width + 6))), y, width, height));
 
             y -= 2;
             ++j;
             int k = 0;
             for (int i = j; i < j + 3; i++)
             {
-                Rectangle r = new Rectangle(5 + (i * width), y, width, height);
+                Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _jumpAnimation.AddFrame(r);
                 k = 0;
             }
@@ -111,7 +112,7 @@ namespace PlatformerJarno.Entities
             for (int i = k; i < k + 2; i++)
             {
                 y += 2;
-                Rectangle r = new Rectangle(5 + (i * width), y, width, height);
+                Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _jumpAnimation.AddFrame(r);
             }
             #endregion
@@ -123,11 +124,12 @@ namespace PlatformerJarno.Entities
             _walkAnimation = new Animation(15);
             for (int i = 0; i < 10; i++)
             {
-                Rectangle r = new Rectangle(5 + (i * width), y, width, height);
+                Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _walkAnimation.AddFrame(r);
             }
             #endregion
 
+            sprite.ViewRectangle = new Rectangle(0, 0, width, height);
             _currentAnimation = _idleAnimation;
         }
     }

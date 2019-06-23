@@ -12,7 +12,8 @@ namespace PlatformerJarno
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        private ICollection<Entity> entities;
+        private Player player;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -28,6 +29,8 @@ namespace PlatformerJarno
 
         protected override void LoadContent()
         {
+            entities = new List<Entity>();
+            player = new Player(Content, "player_spritesheet", new Vector2(100,100), entities, 5f);
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
@@ -40,7 +43,7 @@ namespace PlatformerJarno
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+                player.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -48,7 +51,7 @@ namespace PlatformerJarno
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
+                player.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
