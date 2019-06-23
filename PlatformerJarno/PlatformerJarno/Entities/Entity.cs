@@ -17,6 +17,8 @@ namespace PlatformerJarno.Entities
     {
         // Properties
         protected Sprite sprite;
+        protected Vector2 oldPosition;
+        protected Facing facing;
         // Using ICollection<T> instead of List<T> because of OOP.
         // The interface defines the contract but not the implementation. The implementation could change.
         // A good object-oriented practice is to program towards the interface and not the implementation.
@@ -35,6 +37,11 @@ namespace PlatformerJarno.Entities
                     (int) (sprite.ViewRectangle.Height * sprite.Scale)
                     );
             }
+        }
+
+        protected enum Facing
+        {
+            Left, Right
         }
 
         // Constructor
