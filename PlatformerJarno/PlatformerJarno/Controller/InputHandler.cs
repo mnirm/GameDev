@@ -34,10 +34,9 @@ namespace PlatformerJarno.Controller
         public void HandleInput()
         {
             KeyboardState state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.Left)) _currentAction = ControlAction.Left;
+            if (state.IsKeyDown(Keys.Up)) _currentAction = ControlAction.Jump;
             else if (state.IsKeyDown(Keys.Right)) _currentAction = ControlAction.Right;
-            else if (state.IsKeyDown(Keys.Up)) _currentAction = ControlAction.Jump;
+            else if (state.IsKeyDown(Keys.Left)) _currentAction = ControlAction.Left;
             else if (state.IsKeyDown(Keys.Space)) _currentAction = ControlAction.Attack;
             else _currentAction = ControlAction.Idle;
 

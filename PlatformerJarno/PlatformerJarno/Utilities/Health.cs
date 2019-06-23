@@ -14,12 +14,8 @@ namespace PlatformerJarno.Utilities
     class Health
     {
         // Properties
-        public int Amount
-        {
-            get { return _health; }
-        }
+        public int Amount { get; private set; }
 
-        private int _health;
         private List<Sprite> _hearts;
         private List<Vector2> _heartsPositions;
         private float _scale;
@@ -29,7 +25,7 @@ namespace PlatformerJarno.Utilities
         public Health(int health, ContentManager content, Entity entity, float scale = 1)
         {
             _scale = scale/2;
-            _health = health;
+            Amount = health;
             _entity = entity;
             _hearts = new List<Sprite>();
             _heartsPositions = new List<Vector2>();
@@ -44,19 +40,19 @@ namespace PlatformerJarno.Utilities
         // Methods
         public void ReceiveDamage(int damageReceived)
         {
-            if (damageReceived >= 0) _health -= damageReceived;
+            if (damageReceived >= 0) Amount -= damageReceived;
             else throw new ArgumentException("You can't heal this unit whit this method.");
         }
 
         public void ReceiveHealing(int healingReceived)
         {
-            if (healingReceived >= 0) _health += healingReceived;
+            if (healingReceived >= 0) Amount += healingReceived;
             else throw new ArgumentException("You can't do damage to a unit with this method.");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < _health; i++)
+            for (int i = 0; i < Amount; i++)
             {
                 _hearts[i].Draw(spriteBatch, position:_heartsPositions[i]);
             }
@@ -64,7 +60,7 @@ namespace PlatformerJarno.Utilities
 
         public void Update()
         {
-            for (int i = 0; i < _health; i++)
+            for (int i = 0; i < Amount; i++)
             {
                 _heartsPositions[i] = new Vector2(_entity.Position.X - 2 * _scale + (17 * i * _scale), _entity.Position.Y - 20 * _scale);
             }
