@@ -23,9 +23,12 @@ Platformer:
 - Shoot
 
 # What I learned
-- Creating UML Class Diagram
+- Creating UML Class Diagram, State diagram
 - Using SOLID principles more frequently
 - Some programming patterns
+    - Singleton pattern 
     - Command pattern
-- Learned some new GIT commands
+    - State pattern (with stateManager)
+- Some new GIT commands
 - Working with VIM for editing files and commits
+- More in depth C# types
