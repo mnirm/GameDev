@@ -89,15 +89,13 @@ namespace PlatformerJarno.Entities
 
             y = 25;
             int j = 0;
-            _jumpAnimation = new Animation(15);
-            for (int i = 0; i < 3; i++)
+            _jumpAnimation = new Animation(7);
+            for (int i = 0; i < 4; i++)
             {
                 Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _jumpAnimation.AddFrame(r);
                 j = i;
             }
-            --y;
-            _jumpAnimation.AddFrame(new Rectangle((5 + (j * (width + 6))), y, width, height));
 
             y -= 2;
             ++j;
@@ -111,7 +109,7 @@ namespace PlatformerJarno.Entities
 
             for (int i = k; i < k + 2; i++)
             {
-                y += 2;
+                y += 1;
                 Rectangle r = new Rectangle((5 + (i * (width + 6))), y, width, height);
                 _jumpAnimation.AddFrame(r);
             }
