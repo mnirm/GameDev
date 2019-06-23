@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using PlatformerJarno.Animations;
 using PlatformerJarno.Controller;
 
 
@@ -17,7 +18,11 @@ namespace PlatformerJarno.Entities
     {
         // Properties
         private InputHandler _input;
-        
+        private Animation _currentAnimation;
+        private Animation _idleAnimation;
+        private Animation _runAnimation;
+        private Animation _attackAnimation;
+
         // Constructor
         public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, int health = 5) : base(content, path, startPosition, entities, health)
         {
@@ -59,6 +64,11 @@ namespace PlatformerJarno.Entities
         public void Attack()
         {
 
+        }
+
+        private void CreateAnimations()
+        {
+            //_idleAnimation = new Animation();
         }
     }
 }
