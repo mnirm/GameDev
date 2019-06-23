@@ -43,12 +43,12 @@ namespace PlatformerJarno.Entities
 
         public override void WalkLeft()
         {
-
+            facing = Facing.Left;
         }
 
         public override void WalkRight()
         {
-
+            facing = Facing.Right;
         }
 
         public void Jump()

@@ -53,7 +53,9 @@ namespace PlatformerJarno.Entities
             Entities.Add(this);
 
             Position = startPosition;
-             
+
+            facing = Facing.Right;
+            
             Health = new Health(health);
         }
 
