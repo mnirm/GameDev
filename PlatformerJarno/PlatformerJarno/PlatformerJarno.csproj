@@ -77,6 +77,7 @@
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\GameStateManager.cs" />
     <Compile Include="States\IGameState.cs" />
+    <Compile Include="States\Levels\Level.cs" />
     <Compile Include="States\Levels\Level1.cs" />
     <Compile Include="Terrain\Block.cs" />
     <Compile Include="Utilities\Health.cs" />

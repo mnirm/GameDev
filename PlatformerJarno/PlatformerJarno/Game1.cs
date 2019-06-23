@@ -37,7 +37,7 @@ namespace PlatformerJarno
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameStateManager.Instance.SetContent(Content);
-            GameStateManager.Instance.AddScreen(new Level1(GraphicsDevice));
+            //GameStateManager.Instance.AddScreen(new Level1(GraphicsDevice));
         }
 
         protected override void UnloadContent()
