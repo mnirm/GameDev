@@ -18,7 +18,7 @@ namespace PlatformerJarno.Animations
         public AnimationFrame CurrentFrame { get; private set; }
 
         // Constructor
-        public Animation(int spriteWidth, int spriteYPos, int fps = 1)
+        public Animation(int fps = 1)
         {
             _fps = fps;
 
