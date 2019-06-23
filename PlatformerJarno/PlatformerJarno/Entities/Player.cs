@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PlatformerJarno.Animations;
 using PlatformerJarno.Controller;
+using PlatformerJarno.Movement;
 
 
 namespace PlatformerJarno.Entities
@@ -36,6 +37,7 @@ namespace PlatformerJarno.Entities
         {
             _input.HandleInput();
             _currentAnimation.Update(gameTime);
+            Position += move.Update(gameTime);
             Health.Update();
         }
 
@@ -56,17 +58,20 @@ namespace PlatformerJarno.Entities
         {
             facing = Facing.Left;
             _currentAnimation = _walkAnimation;
+            move.Left();
         }
 
         public override void WalkRight()
         {
             facing = Facing.Right;
             _currentAnimation = _walkAnimation;
+            move.Right();
         }
 
         public void Jump()
         {
             _currentAnimation = _jumpAnimation;
+            move.Jump();
         }
 
         public void Attack()

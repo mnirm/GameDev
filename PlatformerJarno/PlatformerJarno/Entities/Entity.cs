@@ -19,6 +19,7 @@ namespace PlatformerJarno.Entities
         protected Sprite sprite;
         protected Vector2 oldPosition;
         protected Facing facing;
+        protected Moving move;
         // Using ICollection<T> instead of List<T> because of OOP.
         // The interface defines the contract but not the implementation. The implementation could change.
         // A good object-oriented practice is to program towards the interface and not the implementation.
@@ -55,7 +56,8 @@ namespace PlatformerJarno.Entities
             Position = startPosition;
 
             facing = Facing.Right;
-            
+            Movement = Vector2.Zero;
+            move = new Moving();
             Health = new Health(health, content, this, scale);
         }
 
