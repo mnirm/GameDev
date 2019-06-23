@@ -56,7 +56,7 @@ namespace PlatformerJarno.Entities
 
             facing = Facing.Right;
             
-            Health = new Health(health);
+            Health = new Health(health, content, this, scale);
         }
 
         // Methods

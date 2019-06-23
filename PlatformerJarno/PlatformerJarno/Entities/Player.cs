@@ -36,6 +36,7 @@ namespace PlatformerJarno.Entities
         {
             _input.HandleInput();
             _currentAnimation.Update(gameTime);
+            Health.Update();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -43,26 +44,29 @@ namespace PlatformerJarno.Entities
             sprite.ViewRectangle = _currentAnimation.CurrentFrame.SourceRectangle;
             if (facing == Facing.Right) sprite.Draw(spriteBatch, position: Position);
             if (facing == Facing.Left) sprite.Draw(spriteBatch, true, Position);
+            Health.Draw(spriteBatch);
         }
         
         public void Idle()
         {
-
+            _currentAnimation = _idleAnimation;
         }
 
         public override void WalkLeft()
         {
             facing = Facing.Left;
+            _currentAnimation = _walkAnimation;
         }
 
         public override void WalkRight()
         {
             facing = Facing.Right;
+            _currentAnimation = _walkAnimation;
         }
 
         public void Jump()
         {
-
+            _currentAnimation = _jumpAnimation;
         }
 
         public void Attack()

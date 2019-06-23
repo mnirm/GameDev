@@ -30,7 +30,7 @@ namespace PlatformerJarno
         protected override void LoadContent()
         {
             entities = new List<Entity>();
-            player = new Player(Content, "player_spritesheet", new Vector2(100,100), entities, 5f);
+            player = new Player(Content, "player_spritesheet", new Vector2(100,100), entities, 5f, 3);
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
