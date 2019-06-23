@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using PlatformerJarno.Entities;
 using PlatformerJarno.Sprites;
+using PlatformerJarno.States;
+using PlatformerJarno.States.Levels;
 using PlatformerJarno.Terrain;
 
 namespace PlatformerJarno
@@ -32,41 +34,27 @@ namespace PlatformerJarno
 
         protected override void LoadContent()
         {
-            entities = new List<Entity>();
-            terrain =new List<Block>()
-            {
-                new Block(Content, "grassblok",new Vector2(0,300)),
-                new Block(Content, "grassblok",new Vector2(20,300)),
-                new Block(Content, "grassblok",new Vector2(40,300)),
-                new Block(Content, "grassblok",new Vector2(60,320))
-            };
-            player = new Player(Content, "player_spritesheet", new Vector2(100,100), entities, terrain);
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            GameStateManager.Instance.SetContent(Content);
+            GameStateManager.Instance.AddScreen(new Level1(GraphicsDevice));
         }
 
         protected override void UnloadContent()
         {
-
+            GameStateManager.Instance.UnloadContent();
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-                player.Update(gameTime);
+            GameStateManager.Instance.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
-                player.Draw(spriteBatch);
-                foreach (var blok in terrain)
-                {
-                    blok.Draw(spriteBatch);
-                }
-            spriteBatch.End();
+            GameStateManager.Instance.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }

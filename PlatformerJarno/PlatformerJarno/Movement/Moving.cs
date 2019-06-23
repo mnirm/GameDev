@@ -26,7 +26,7 @@ namespace PlatformerJarno.Movement
         {
             _movement += Vector2.UnitY * _gravityForce;
             if (_gravityForce < 1.4f) _gravityForce *= 1.2f;
-            if (touchGround) _gravityForce = 0.5f; // change to touch ground
+            if (touchGround) _gravityForce = 0.5f;
         }
 
         public void Left()
@@ -56,7 +56,7 @@ namespace PlatformerJarno.Movement
 
         private void SimulateFriction(bool touchGround)
         {
-            if (touchGround) // change to touch ground
+            if (touchGround)
                 _movement -= _movement * Vector2.One * .08f;
             else
                 _movement -= _movement * Vector2.One * .02f;
