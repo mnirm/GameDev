@@ -14,11 +14,15 @@ namespace PlatformerJarno.States.Levels
 {
     class Level2:Level
     {
+        // Properties
+
+        // Constructor
         public Level2(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
 
         }
 
+        // Methods
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();

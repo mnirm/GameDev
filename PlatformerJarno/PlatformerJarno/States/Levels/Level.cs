@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PlatformerJarno.Collider;
 using PlatformerJarno.Entities;
+using PlatformerJarno.States.Menus;
 using PlatformerJarno.Terrain;
 using PlatformerJarno.Utilities;
 
@@ -43,6 +44,11 @@ namespace PlatformerJarno.States.Levels
 
         public abstract override void UnloadContent();
 
+        public void NextState(IGameState state)
+        {
+            GameStateManager.Instance.SetCurrentState(state);
+
+        }
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin(transformMatrix: camera.GetTransformationMatrix(_graphicsDevice));
@@ -71,8 +77,12 @@ namespace PlatformerJarno.States.Levels
             foreach (var entity in entities)
             {
                 entity.Update(gameTime);
-                if(entity is Player)
+                if (entity is Player)
+                {
                     camera.MoveCamera(new Vector2(entity.CollisionRectangle.X - (1920 / 2 / camera.Zoom), 0));
+                    if(entity.Health.Amount <= 0)
+                        NextState(new MainMenu(_graphicsDevice));
+                }
             }
 
             foreach (var bullet in bullets)

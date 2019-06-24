@@ -40,7 +40,7 @@ namespace PlatformerJarno.States.Levels
             if (collision.TouchPortal(portal.CollisionRectangle))
             {
                 _level2 = new Level2(_graphicsDevice);
-                GameStateManager.Instance.SetCurrentState(_level2);
+                NextState(_level2);
             }
             base.Update(gameTime);
         }
