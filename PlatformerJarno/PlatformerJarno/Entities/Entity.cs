@@ -43,7 +43,7 @@ namespace PlatformerJarno.Entities
             }
         }
 
-        protected enum Facing
+        public enum Facing
         {
             Left, Right
         }
@@ -71,6 +71,11 @@ namespace PlatformerJarno.Entities
             sprite.ViewRectangle = currentAnimation.CurrentFrame.SourceRectangle;
             if (facing == Facing.Right) sprite.Draw(spriteBatch, position: Position);
             if (facing == Facing.Left) sprite.Draw(spriteBatch, true, Position);
+        }
+
+        public virtual Facing GetFacing()
+        {
+            return facing;
         }
 
         public abstract void Update(GameTime gameTime);

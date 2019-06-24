@@ -12,6 +12,7 @@ using PlatformerJarno.Animations;
 using PlatformerJarno.Controller;
 using PlatformerJarno.Movement;
 using PlatformerJarno.Terrain;
+using PlatformerJarno.Utilities;
 
 
 namespace PlatformerJarno.Entities
@@ -24,12 +25,16 @@ namespace PlatformerJarno.Entities
         private Animation _idleAnimation;
         private Animation _walkAnimation;
         private Animation _jumpAnimation;
+        private ICollection<Bullet> _bullets;
+        private ContentManager _content;
 
         // Constructor
-        public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, scale, health)
+        public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, scale, health)
         {
             _input = new InputHandler(this);
             CreateAnimations(20, 20);
+            _bullets = bullets;
+            _content = content;
         }
 
         // Methods
@@ -82,7 +87,7 @@ namespace PlatformerJarno.Entities
 
         public void Attack()
         {
-
+            _bullets.Add(new Bullet(_content, this));
         }
 
         private void CreateAnimations(int width, int height)

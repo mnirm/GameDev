@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using PlatformerJarno.Entities;
 using PlatformerJarno.Terrain;
+using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.Collider
 {
@@ -80,6 +81,24 @@ namespace PlatformerJarno.Collider
             }
 
             return possibleLocation;
+        }
+
+        public void CollisionEnemyBullet(ICollection<Bullet> bullets, ICollection<Entity> entities)
+        {
+            foreach (var bullet in bullets)
+            {
+                foreach (var entity in entities)
+                {
+                    if (!(entity is Player))
+                    {
+                        if (entity.CollisionRectangle.Intersects(bullet.CollisionRectangle))
+                        {
+                            entity.Health.ReceiveDamage(1);
+                            bullets.Remove(bullet);
+                        }
+                    }
+                }
+            }
         }
     }
 }

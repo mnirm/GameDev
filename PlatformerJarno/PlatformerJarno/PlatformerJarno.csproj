@@ -82,6 +82,7 @@
     <Compile Include="States\Menus\MainMenu.cs" />
     <Compile Include="States\Menus\MenuScreen.cs" />
     <Compile Include="Terrain\Block.cs" />
+    <Compile Include="Utilities\Bullet.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
     <Compile Include="Utilities\Health.cs" />
