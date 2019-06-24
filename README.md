@@ -32,3 +32,6 @@ Platformer:
 - Some new GIT commands
 - Working with VIM for editing files and commits
 - More in depth C# types
+    - Events
+    - delegate
+
