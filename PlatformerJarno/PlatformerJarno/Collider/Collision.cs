@@ -107,6 +107,7 @@ namespace PlatformerJarno.Collider
                     }
                 }
             }
+            _bullets.OrderBy(x => x);
         }
 
         private void BulletIntoTerrain()
@@ -119,6 +120,7 @@ namespace PlatformerJarno.Collider
                         _bullets.Remove(bullet);
                 }
             }
+            _bullets.OrderBy(x => x);
         }
     }
 }

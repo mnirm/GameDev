@@ -60,7 +60,7 @@ namespace PlatformerJarno.Entities
 
             facing = Facing.Right;
 
-            move = new Moving();
+            move = new Moving(50);
             collision = new Collision(terrain, entities, bullets);
             Health = new Health(health, content, this, scale);
         }
