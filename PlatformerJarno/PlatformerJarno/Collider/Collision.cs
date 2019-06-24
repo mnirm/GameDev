@@ -85,19 +85,13 @@ namespace PlatformerJarno.Collider
             return possibleLocation;
         }
 
-        public void CollisionTerrainBullet()
+        public void CollisionBullet()
         {
-            foreach (var bullet in _bullets)
-            {
-                foreach (var block in _terrain)
-                {
-                    if (block.CollisionRectangle.Intersects(bullet.CollisionRectangle))
-                        _bullets.Remove(bullet);
-                }
-            }
+            BulletIntoTerrain();
+            BulletIntoEntity();
         }
 
-        public void CollisionEnemyBullet()
+        private void BulletIntoEntity()
         {
             foreach (var bullet in _bullets)
             {
@@ -111,6 +105,18 @@ namespace PlatformerJarno.Collider
                             _bullets.Remove(bullet);
                         }
                     }
+                }
+            }
+        }
+
+        private void BulletIntoTerrain()
+        {
+            foreach (var bullet in _bullets)
+            {
+                foreach (var block in _terrain)
+                {
+                    if (block.CollisionRectangle.Intersects(bullet.CollisionRectangle))
+                        _bullets.Remove(bullet);
                 }
             }
         }

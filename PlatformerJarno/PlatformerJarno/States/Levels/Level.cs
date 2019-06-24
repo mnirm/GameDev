@@ -69,7 +69,7 @@ namespace PlatformerJarno.States.Levels
             {
                 bullet.Update(gameTime);
             }
-            collision.CollisionTerrainBullet();
+            collision.CollisionBullet();
         }
     }
 }
