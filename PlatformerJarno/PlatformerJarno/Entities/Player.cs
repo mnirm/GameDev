@@ -27,6 +27,7 @@ namespace PlatformerJarno.Entities
         private Animation _jumpAnimation;
         private ICollection<Bullet> _bullets;
         private ContentManager _content;
+        private bool _jump;
 
         // Constructor
         public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, bullets, scale, health)
@@ -78,6 +79,7 @@ namespace PlatformerJarno.Entities
 
         public void Jump()
         {
+            _jump = true;
             if (collision.TouchingGround(CollisionRectangle))
             {
                 currentAnimation = _jumpAnimation;

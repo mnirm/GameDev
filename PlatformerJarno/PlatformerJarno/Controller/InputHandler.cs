@@ -16,6 +16,7 @@ namespace PlatformerJarno.Controller
         private Player _player;
         private ControlAction _currentAction;
         private Commands _commands;
+        private KeyboardState _oldState = Keyboard.GetState();
 
         public enum ControlAction
         {
@@ -35,11 +36,12 @@ namespace PlatformerJarno.Controller
         {
             KeyboardState state = Keyboard.GetState();
             if (state.IsKeyDown(Keys.Up)) _currentAction = ControlAction.Jump;
-            else if (state.IsKeyDown(Keys.Space)) _currentAction = ControlAction.Attack;
+            else if (state.IsKeyDown(Keys.Space) && _oldState.IsKeyUp(Keys.Space)) _currentAction = ControlAction.Attack;
             else if (state.IsKeyDown(Keys.Right)) _currentAction = ControlAction.Right;
             else if (state.IsKeyDown(Keys.Left)) _currentAction = ControlAction.Left;
             else _currentAction = ControlAction.Idle;
 
+            _oldState = state;
             _commands.Excecute(_player, _currentAction);
         }
     }
