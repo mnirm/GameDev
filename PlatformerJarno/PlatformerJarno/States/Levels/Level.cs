@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,7 @@ namespace PlatformerJarno.States.Levels
 
         public abstract override void LoadContent(ContentManager content);
 
-        public override void UnloadContent()
-        {
-            GameStateManager.Instance.UnloadContent();
-        }
+        public abstract override void UnloadContent();
 
         public override void Update(GameTime gameTime)
         {

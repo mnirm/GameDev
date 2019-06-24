@@ -14,18 +14,10 @@ namespace PlatformerJarno.States
     class GameStateManager
     {
         // Properties
-        private static GameStateManager _instance;
         private ContentManager _content;
         private IGameState _state;
-
-        public static GameStateManager Instance
-        {
-            get
-            {
-                if (_instance == null) _instance = new GameStateManager();
-                return _instance;
-            }
-        }
+        private static GameStateManager _instance;
+        public static GameStateManager Instance => _instance ?? (_instance = new GameStateManager());
 
         // Constructor
 

@@ -13,12 +13,28 @@ namespace PlatformerJarno.States.Levels
 {
     class Level1: Level
     {
+
         public Level1(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
         }
 
         public override void LoadContent(ContentManager content)
         {
+        }
+
+        public override void UnloadContent()
+        {
+
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
         }
     }
 }

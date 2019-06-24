@@ -38,7 +38,7 @@ namespace PlatformerJarno
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameStateManager.Instance.SetContent(Content);
-            GameStateManager.Instance.SetCurrentState(new MenuScreen(GraphicsDevice));
+            GameStateManager.Instance.SetCurrentState(new MainMenu(GraphicsDevice));
         }
 
         protected override void UnloadContent()
@@ -48,6 +48,10 @@ namespace PlatformerJarno
 
         protected override void Update(GameTime gameTime)
         {
+            if (GameStateManager.Instance.GetCurrentState() is MenuScreen)
+                this.IsMouseVisible = true;
+            else this.IsMouseVisible = false;
+
             GameStateManager.Instance.Update(gameTime);
             base.Update(gameTime);
         }

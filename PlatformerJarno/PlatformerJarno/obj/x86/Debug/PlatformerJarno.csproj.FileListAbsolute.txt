@@ -24,3 +24,6 @@ C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\Platfo
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\player_spritesheet.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\heart.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\grassblok.xnb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\Buttons\button_exit.xnb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\Buttons\button_play.xnb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\Buttons\button_settings.xnb
