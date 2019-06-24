@@ -72,12 +72,12 @@ namespace PlatformerJarno.Utilities
         {
             if (_facing == Entity.Facing.Right)
             {
-                _velocity = new Vector2(1, 0);
+                _velocity = new Vector2(3, 0);
                 _position += _velocity;
             }
             else if (_facing == Entity.Facing.Left)
             {
-                _velocity = new Vector2(-1,0);
+                _velocity = new Vector2(-3,0);
                 _position += _velocity;
             }
         }

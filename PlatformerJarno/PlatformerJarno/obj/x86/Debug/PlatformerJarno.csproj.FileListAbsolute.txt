@@ -28,3 +28,5 @@ C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debu
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\Buttons\button_play.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\Buttons\button_settings.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\bullet.xnb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.Properties.Resources.resources
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.csproj.GenerateResource.cache

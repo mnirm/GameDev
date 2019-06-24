@@ -23,11 +23,13 @@ namespace PlatformerJarno.States.Levels
         protected ICollection<Bullet> bullets;
         protected Collision collision;
         protected Camera2D camera;
+        protected BitmapLoader terrainLoader;
 
         // Constructor
         public Level(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             camera = new Camera2D(){Zoom = 2f};
+            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.map_test);
         }
 
         // Methods

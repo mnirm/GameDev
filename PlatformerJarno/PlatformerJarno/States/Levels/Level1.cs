@@ -26,19 +26,7 @@ namespace PlatformerJarno.States.Levels
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();
-            terrain = new List<Block>()
-            {
-                new Block(content, "grassblok", new Vector2(0,200)),
-                new Block(content, "grassblok", new Vector2(20,200)),
-                new Block(content, "grassblok", new Vector2(40,200)),
-                new Block(content, "grassblok", new Vector2(60,200)),
-                new Block(content, "grassblok", new Vector2(80,200)),
-                new Block(content, "grassblok", new Vector2(100,200)),
-                new Block(content, "grassblok", new Vector2(120,200)),
-                new Block(content, "grassblok", new Vector2(120,180)),
-                new Block(content, "grassblok", new Vector2(120,160)),
-
-            };
+            terrain = terrainLoader.GetTerrain(content, "grassblok");
             bullets = new List<Bullet>();
 
             player = new Player(content, "player_spritesheet", new Vector2(0,0), entities, terrain,bullets);
