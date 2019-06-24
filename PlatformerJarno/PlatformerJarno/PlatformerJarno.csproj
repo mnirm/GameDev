@@ -85,6 +85,7 @@
     <Compile Include="Utilities\Bullet.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
+    <Compile Include="Utilities\Camera2D.cs" />
     <Compile Include="Utilities\Health.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,9 +35,9 @@ namespace PlatformerJarno.Controller
         {
             KeyboardState state = Keyboard.GetState();
             if (state.IsKeyDown(Keys.Up)) _currentAction = ControlAction.Jump;
+            else if (state.IsKeyDown(Keys.Space)) _currentAction = ControlAction.Attack;
             else if (state.IsKeyDown(Keys.Right)) _currentAction = ControlAction.Right;
             else if (state.IsKeyDown(Keys.Left)) _currentAction = ControlAction.Left;
-            else if (state.IsKeyDown(Keys.Space)) _currentAction = ControlAction.Attack;
             else _currentAction = ControlAction.Idle;
 
             _commands.Excecute(_player, _currentAction);

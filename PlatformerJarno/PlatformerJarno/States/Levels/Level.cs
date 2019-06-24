@@ -22,10 +22,12 @@ namespace PlatformerJarno.States.Levels
         protected ICollection<Block> terrain;
         protected ICollection<Bullet> bullets;
         protected Collision collision;
+        protected Camera2D camera;
 
         // Constructor
         public Level(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
+            camera = new Camera2D(){Zoom = 2f};
         }
 
         // Methods
@@ -40,7 +42,7 @@ namespace PlatformerJarno.States.Levels
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: camera.GetTransformationMatrix(_graphicsDevice));
             foreach (var block in terrain)
             {
                 block.Draw(spriteBatch);
@@ -63,6 +65,8 @@ namespace PlatformerJarno.States.Levels
             foreach (var entity in entities)
             {
                 entity.Update(gameTime);
+                if(entity is Player)
+                    camera.MoveCamera(new Vector2(entity.CollisionRectangle.X - (1920 / 2 / camera.Zoom), 0));
             }
 
             foreach (var bullet in bullets)
