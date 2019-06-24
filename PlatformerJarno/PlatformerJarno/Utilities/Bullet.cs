@@ -37,10 +37,20 @@ namespace PlatformerJarno.Utilities
         public Bullet(ContentManager content,Entity shooter)
         {
             _facing = shooter.GetFacing();
-            _position = new Vector2(
-                shooter.Position.X + shooter.CollisionRectangle.Width,
-                shooter.Position.Y + 10
+            if (_facing == Entity.Facing.Right)
+            {
+                _position = new Vector2(
+                    shooter.Position.X + shooter.CollisionRectangle.Width,
+                    shooter.Position.Y + 10
                 );
+            }
+            else if (_facing == Entity.Facing.Left)
+            {
+                _position = new Vector2(
+                    shooter.Position.X - shooter.CollisionRectangle.Width - 10,
+                    shooter.Position.Y + 10
+                );
+            }
             _sprite = new Sprite(content, "bullet", _position, 0.08f);
         }
 

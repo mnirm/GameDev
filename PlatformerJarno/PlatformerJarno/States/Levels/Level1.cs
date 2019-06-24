@@ -35,8 +35,10 @@ namespace PlatformerJarno.States.Levels
                 new Block(content, "grassblok", new Vector2(40,200)),
                 new Block(content, "grassblok", new Vector2(60,200)),
                 new Block(content, "grassblok", new Vector2(80,200)),
-                new Block(content, "grassblok", new Vector2(80,180)),
-                new Block(content, "grassblok", new Vector2(80,160)),
+                new Block(content, "grassblok", new Vector2(100,200)),
+                new Block(content, "grassblok", new Vector2(120,200)),
+                new Block(content, "grassblok", new Vector2(120,180)),
+                new Block(content, "grassblok", new Vector2(120,160)),
 
             };
             bullets = new List<Bullet>();
