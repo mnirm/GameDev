@@ -39,9 +39,9 @@ namespace PlatformerJarno.Utilities
             _facing = shooter.GetFacing();
             _position = new Vector2(
                 shooter.Position.X + shooter.CollisionRectangle.Width,
-                shooter.Position.Y/2
+                shooter.Position.Y + 10
                 );
-            _sprite = new Sprite(content, "bullet", _position, 0.1f);
+            _sprite = new Sprite(content, "bullet", _position, 0.08f);
         }
 
         // Methods

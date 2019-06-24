@@ -15,12 +15,14 @@ namespace PlatformerJarno.Collider
         // Properties
         private ICollection<Block> _terrain;
         private ICollection<Entity> _entities;
+        private ICollection<Bullet> _bullets;
 
         // Constructor
-        public Collision(ICollection<Block> terrain, ICollection<Entity> entities)
+        public Collision(ICollection<Block> terrain, ICollection<Entity> entities, ICollection<Bullet> bullets)
         {
             _terrain = terrain;
             _entities = entities;
+            _bullets = bullets;
         }
 
         // Methods
@@ -83,18 +85,30 @@ namespace PlatformerJarno.Collider
             return possibleLocation;
         }
 
-        public void CollisionEnemyBullet(ICollection<Bullet> bullets, ICollection<Entity> entities)
+        public void CollisionTerrainBullet()
         {
-            foreach (var bullet in bullets)
+            foreach (var bullet in _bullets)
             {
-                foreach (var entity in entities)
+                foreach (var block in _terrain)
+                {
+                    if (block.CollisionRectangle.Intersects(bullet.CollisionRectangle))
+                        _bullets.Remove(bullet);
+                }
+            }
+        }
+
+        public void CollisionEnemyBullet()
+        {
+            foreach (var bullet in _bullets)
+            {
+                foreach (var entity in _entities)
                 {
                     if (!(entity is Player))
                     {
                         if (entity.CollisionRectangle.Intersects(bullet.CollisionRectangle))
                         {
                             entity.Health.ReceiveDamage(1);
-                            bullets.Remove(bullet);
+                            _bullets.Remove(bullet);
                         }
                     }
                 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using PlatformerJarno.Collider;
 using PlatformerJarno.Entities;
 using PlatformerJarno.Terrain;
 using PlatformerJarno.Utilities;
@@ -18,6 +19,7 @@ namespace PlatformerJarno.States.Levels
         private ICollection<Entity> entities;
         private ICollection<Block> terrain;
         private ICollection<Bullet> bullets;
+        private Collision collision;
 
         public Level1(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
@@ -32,11 +34,16 @@ namespace PlatformerJarno.States.Levels
                 new Block(content, "grassblok", new Vector2(20,200)),
                 new Block(content, "grassblok", new Vector2(40,200)),
                 new Block(content, "grassblok", new Vector2(60,200)),
+                new Block(content, "grassblok", new Vector2(80,200)),
+                new Block(content, "grassblok", new Vector2(80,180)),
+                new Block(content, "grassblok", new Vector2(80,160)),
 
             };
             bullets = new List<Bullet>();
 
             player = new Player(content, "player_spritesheet", new Vector2(0,0), entities, terrain,bullets);
+
+            collision = new Collision(terrain, entities, bullets);
         }
 
         public override void UnloadContent()
@@ -48,14 +55,14 @@ namespace PlatformerJarno.States.Levels
         {
             base.Draw(spriteBatch);
             spriteBatch.Begin();
-            foreach (var entity in entities)
-            {
-                entity.Draw(spriteBatch);
-            }
-
             foreach (var block in terrain)
             {
                 block.Draw(spriteBatch);
+            }
+
+            foreach (var entity in entities)
+            {
+                entity.Draw(spriteBatch);
             }
 
             foreach (var bullet in bullets)
@@ -77,6 +84,7 @@ namespace PlatformerJarno.States.Levels
             {
                 bullet.Update(gameTime);
             }
+            collision.CollisionTerrainBullet();
         }
     }
 }

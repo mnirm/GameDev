@@ -29,7 +29,7 @@ namespace PlatformerJarno.Entities
         private ContentManager _content;
 
         // Constructor
-        public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, scale, health)
+        public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, bullets, scale, health)
         {
             _input = new InputHandler(this);
             CreateAnimations(20, 20);
