@@ -11,7 +11,14 @@ using PlatformerJarno.Terrain;
 
 namespace PlatformerJarno.States.Levels
 {
-    class Level1
+    class Level1: Level
     {
+        public Level1(GraphicsDevice graphicsDevice) : base(graphicsDevice)
+        {
+        }
+
+        public override void LoadContent(ContentManager content)
+        {
+        }
     }
 }

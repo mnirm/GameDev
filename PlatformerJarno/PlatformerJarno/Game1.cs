@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -6,6 +7,7 @@ using PlatformerJarno.Entities;
 using PlatformerJarno.Sprites;
 using PlatformerJarno.States;
 using PlatformerJarno.States.Levels;
+using PlatformerJarno.States.Menus;
 using PlatformerJarno.Terrain;
 
 namespace PlatformerJarno
@@ -15,13 +17,13 @@ namespace PlatformerJarno
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private ICollection<Entity> entities;
-        private Player player;
-        private ICollection<Block> terrain;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this)
+            {   PreferredBackBufferWidth = 1920,
+                PreferredBackBufferHeight = 1080
+            };
             Content.RootDirectory = "Content";
         }
 
@@ -34,10 +36,9 @@ namespace PlatformerJarno
 
         protected override void LoadContent()
         {
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameStateManager.Instance.SetContent(Content);
-            //GameStateManager.Instance.AddScreen(new Level1(GraphicsDevice));
+            GameStateManager.Instance.SetCurrentState(new MenuScreen(GraphicsDevice));
         }
 
         protected override void UnloadContent()
