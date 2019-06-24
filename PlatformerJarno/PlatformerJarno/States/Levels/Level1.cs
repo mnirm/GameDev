@@ -15,16 +15,14 @@ namespace PlatformerJarno.States.Levels
 {
     class Level1: Level
     {
-        private Player player;
-        private ICollection<Entity> entities;
-        private ICollection<Block> terrain;
-        private ICollection<Bullet> bullets;
-        private Collision collision;
+        // Properties
 
+        // Constructor
         public Level1(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
         }
 
+        // Methods
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();
@@ -51,42 +49,6 @@ namespace PlatformerJarno.States.Levels
         public override void UnloadContent()
         {
 
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-            spriteBatch.Begin();
-            foreach (var block in terrain)
-            {
-                block.Draw(spriteBatch);
-            }
-
-            foreach (var entity in entities)
-            {
-                entity.Draw(spriteBatch);
-            }
-
-            foreach (var bullet in bullets)
-            {
-                bullet.Draw(spriteBatch);
-            }
-            spriteBatch.End();
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-            foreach (var entity in entities)
-            {
-                entity.Update(gameTime);
-            }
-
-            foreach (var bullet in bullets)
-            {
-                bullet.Update(gameTime);
-            }
-            collision.CollisionTerrainBullet();
         }
     }
 }
