@@ -16,6 +16,7 @@ namespace PlatformerJarno.States.Levels
     class Level1: Level
     {
         // Properties
+        private Level2 _level2;
 
         // Constructor
         public Level1(GraphicsDevice graphicsDevice) : base(graphicsDevice)
@@ -26,26 +27,27 @@ namespace PlatformerJarno.States.Levels
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();
+            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.map_test);
             terrain = terrainLoader.GetTerrain(content);
-            bullets = new List<Bullet>();
 
-            player = new Player(content, "player_spritesheet", new Vector2(0,0), entities, terrain,bullets);
-
+            player = new Player(content, "player_spritesheet", new Vector2(0,0), entities, terrain, bullets);
+            portal = new Portal(content, "portal_spritesheet", new Vector2(500,300));
             collision = new Collision(terrain, entities, bullets);
         }
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
-            if (collision.TouchPortal())
+            if (collision.TouchPortal(portal.CollisionRectangle))
             {
-                GameStateManager.Instance.SetCurrentState(new Level2(_graphicsDevice));
+                _level2 = new Level2(_graphicsDevice);
+                GameStateManager.Instance.SetCurrentState(_level2);
             }
+            base.Update(gameTime);
         }
 
         public override void UnloadContent()
         {
-
+            GameStateManager.Instance.UnloadContent();
         }
     }
 }

@@ -21,6 +21,7 @@ namespace PlatformerJarno.States.Levels
         protected ICollection<Entity> entities;
         protected ICollection<Block> terrain;
         protected ICollection<Bullet> bullets;
+        protected Portal portal;
         protected Collision collision;
         protected Camera2D camera;
         protected BitmapLoader terrainLoader;
@@ -29,7 +30,7 @@ namespace PlatformerJarno.States.Levels
         public Level(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
             camera = new Camera2D(){Zoom = 2f};
-            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.map_test);
+            bullets = new List<Bullet>();
         }
 
         // Methods
@@ -49,6 +50,9 @@ namespace PlatformerJarno.States.Levels
             {
                 block.Draw(spriteBatch);
             }
+
+            portal.Draw(spriteBatch);
+
 
             foreach (var entity in entities)
             {
@@ -75,6 +79,8 @@ namespace PlatformerJarno.States.Levels
             {
                 bullet.Update(gameTime);
             }
+
+            portal.Update(gameTime);
 
             collision.CollisionBullet();
         }

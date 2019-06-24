@@ -123,19 +123,12 @@ namespace PlatformerJarno.Collider
             _bullets.OrderBy(x => x);
         }
 
-        public bool TouchPortal()
+        public bool TouchPortal(Rectangle portalRectangle)
         {
             foreach (var entity in _entities)
             {
-                if (entity is Player)
-                {
-                    foreach (var block in _terrain)
-                    {
-                        if(block is Portal)
-                            if (entity.CollisionRectangle.Intersects(block.CollisionRectangle))
-                                return true;
-                    }
-                }
+                if (entity is Player && entity.CollisionRectangle.Intersects(portalRectangle))
+                    return true;
             }
             return false;
         }

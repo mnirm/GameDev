@@ -30,3 +30,5 @@ C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debu
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\bullet.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.Properties.Resources.resources
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\PlatformerJarno.csproj.GenerateResource.cache
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\portal_spritesheet.xnb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\protal.xnb
