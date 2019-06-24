@@ -26,12 +26,21 @@ namespace PlatformerJarno.States.Levels
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();
-            terrain = terrainLoader.GetTerrain(content, "grassblok");
+            terrain = terrainLoader.GetTerrain(content);
             bullets = new List<Bullet>();
 
             player = new Player(content, "player_spritesheet", new Vector2(0,0), entities, terrain,bullets);
 
             collision = new Collision(terrain, entities, bullets);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            if (collision.TouchPortal())
+            {
+                GameStateManager.Instance.SetCurrentState(new Level2(_graphicsDevice));
+            }
         }
 
         public override void UnloadContent()

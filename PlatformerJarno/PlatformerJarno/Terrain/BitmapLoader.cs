@@ -36,7 +36,7 @@ namespace PlatformerJarno.Terrain
 
         // Methods
 
-        public ICollection<Block> GetTerrain(ContentManager content, string terrainSprite)
+        public ICollection<Block> GetTerrain(ContentManager content)
         {
             int x, y;
             for (y = 0; y < _image.Height; y++)
@@ -45,7 +45,7 @@ namespace PlatformerJarno.Terrain
                 {
                     if (_coordinates[x, y] != 0)
                     {
-                        AddBlock(content, terrainSprite, x, y);
+                        AddBlock(content, "grassblok", x, y);
                     }
                 }
             }

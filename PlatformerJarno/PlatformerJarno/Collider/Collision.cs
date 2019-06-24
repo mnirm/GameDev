@@ -122,5 +122,22 @@ namespace PlatformerJarno.Collider
             }
             _bullets.OrderBy(x => x);
         }
+
+        public bool TouchPortal()
+        {
+            foreach (var entity in _entities)
+            {
+                if (entity is Player)
+                {
+                    foreach (var block in _terrain)
+                    {
+                        if(block is Portal)
+                            if (entity.CollisionRectangle.Intersects(block.CollisionRectangle))
+                                return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

@@ -84,10 +84,12 @@
     <Compile Include="States\IGameState.cs" />
     <Compile Include="States\Levels\Level.cs" />
     <Compile Include="States\Levels\Level1.cs" />
+    <Compile Include="States\Levels\Level2.cs" />
     <Compile Include="States\Menus\MainMenu.cs" />
     <Compile Include="States\Menus\MenuScreen.cs" />
     <Compile Include="Terrain\BitmapLoader.cs" />
     <Compile Include="Terrain\Block.cs" />
+    <Compile Include="Terrain\Portal.cs" />
     <Compile Include="Utilities\Bullet.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
@@ -105,7 +107,6 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <None Include="Resources\map_test.png" />
-    <None Include="Resources\level1_map.bmp" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
