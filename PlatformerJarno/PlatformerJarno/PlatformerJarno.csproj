@@ -66,6 +66,7 @@
     <Compile Include="Controller\Commands.cs" />
     <Compile Include="Controller\ICommand.cs" />
     <Compile Include="Controller\InputHandler.cs" />
+    <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Game1.cs" />
