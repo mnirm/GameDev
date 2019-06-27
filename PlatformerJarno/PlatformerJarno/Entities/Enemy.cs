@@ -16,9 +16,13 @@ namespace PlatformerJarno.Entities
     class Enemy : Entity
     {
         // Properties
+        private float _timer;
+        private const float _TIMER = 5;
 
         // Constructor
-        public Enemy(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1, int health = 2) : base(content, path, startPosition, entities, terrain, bullets, scale, health)
+        public Enemy(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities,
+            ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1, int health = 2, int movementspeed = 400) : 
+            base(content, path, startPosition, entities, terrain, bullets, scale, health, movementspeed)
         {
             currentAnimation = new Animation(4);
             for (int i = 0; i < 4; i++)
@@ -31,7 +35,9 @@ namespace PlatformerJarno.Entities
         // Methods
         public override void Draw(SpriteBatch spriteBatch)
         {
-            base.Draw(spriteBatch);
+            sprite.ViewRectangle = currentAnimation.CurrentFrame.SourceRectangle;
+            if (facing == Facing.Right) sprite.Draw(spriteBatch, true, Position);
+            if (facing == Facing.Left) sprite.Draw(spriteBatch, position: Position);
             Health.Draw(spriteBatch);
         }
 
@@ -40,20 +46,43 @@ namespace PlatformerJarno.Entities
             Health.Update();
             currentAnimation.Update(gameTime);
 
+            Timer(gameTime);
+
+            if (facing == Facing.Left)
+            {
+                WalkLeft();
+            }
+            else if (facing == Facing.Right)
+            {
+                WalkRight();
+            }
+
             oldPosition = Position;
             Position += move.Update(gameTime, collision.TouchingGround(CollisionRectangle));
             Position = collision.TryMoveTo(oldPosition, Position, CollisionRectangle);
             move.StopMovingIfBlocked(Position, oldPosition);
         }
 
+        private void Timer(GameTime gameTime)
+        {
+            float elapsed = (float) gameTime.ElapsedGameTime.TotalSeconds;
+            _timer -= elapsed;
+            if (_timer < 0)
+            {
+                if (facing == Facing.Left) facing = Facing.Right;
+                else facing = Facing.Left;
+                _timer = _TIMER;
+            }
+        }
+
         public override void WalkLeft()
         {
-
+            move.Left();
         }
 
         public override void WalkRight()
         {
-
+            move.Right();
         }
     }
 }

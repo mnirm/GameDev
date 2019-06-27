@@ -112,15 +112,14 @@ namespace PlatformerJarno.Collider
 
         private void BulletIntoTerrain()
         {
-            foreach (var bullet in _bullets)
+            foreach (var block in _terrain)
             {
-                foreach (var block in _terrain)
+                foreach (var bullet in _bullets)
                 {
                     if (block.CollisionRectangle.Intersects(bullet.CollisionRectangle))
                         _bullets.Remove(bullet);
                 }
             }
-            _bullets.OrderBy(x => x);
         }
 
         public bool TouchEnemy(Rectangle playerRectangle)

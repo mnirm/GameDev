@@ -49,7 +49,7 @@ namespace PlatformerJarno.Entities
         }
 
         // Constructor
-        protected Entity(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1, int health = 5)
+        protected Entity(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1, int health = 5, int movementspeed = 50)
         {
             sprite = new Sprite(content, path, startPosition, scale: scale);
 
@@ -60,7 +60,7 @@ namespace PlatformerJarno.Entities
 
             facing = Facing.Right;
 
-            move = new Moving(50);
+            move = new Moving(movementspeed);
             collision = new Collision(terrain, entities, bullets);
             Health = new Health(health, content, this, scale);
         }
