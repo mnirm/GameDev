@@ -93,16 +93,16 @@ namespace PlatformerJarno.Collider
 
         private void BulletIntoEntity()
         {
-            foreach (var bullet in _bullets)
+            foreach (var entity in _entities)
             {
-                foreach (var entity in _entities)
+                foreach (var bullet in _bullets)
                 {
                     if (!(entity is Player))
                     {
                         if (entity.CollisionRectangle.Intersects(bullet.CollisionRectangle))
                         {
-                            entity.Health.ReceiveDamage(1);
                             _bullets.Remove(bullet);
+                            entity.Health.ReceiveDamage(1);
                         }
                     }
                 }
@@ -121,6 +121,15 @@ namespace PlatformerJarno.Collider
                 }
             }
             _bullets.OrderBy(x => x);
+        }
+
+        public bool TouchEnemy(Rectangle playerRectangle)
+        {
+            foreach (var entity in _entities)
+            {
+                if (!(entity is Player) && playerRectangle.Intersects(entity.CollisionRectangle)) return true;
+            }
+            return false;
         }
 
         public bool TouchPortal(Rectangle portalRectangle)

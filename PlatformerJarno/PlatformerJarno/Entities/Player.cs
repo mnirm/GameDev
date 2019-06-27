@@ -27,6 +27,7 @@ namespace PlatformerJarno.Entities
         private Animation _jumpAnimation;
         private ICollection<Bullet> _bullets;
         private ContentManager _content;
+        private Vector2 _spawnLocation;
 
         // Constructor
         public Player(ContentManager content, string path, Vector2 startPosition, ICollection<Entity> entities, ICollection<Block> terrain, ICollection<Bullet> bullets, float scale = 1 ,int health = 5) : base(content, path, startPosition, entities, terrain, bullets, scale, health)
@@ -35,6 +36,7 @@ namespace PlatformerJarno.Entities
             CreateAnimations(20, 20);
             _bullets = bullets;
             _content = content;
+            _spawnLocation = startPosition;
         }
 
         // Methods
@@ -47,6 +49,11 @@ namespace PlatformerJarno.Entities
             Position += move.Update(gameTime, collision.TouchingGround(CollisionRectangle));
             Position = collision.TryMoveTo(oldPosition, Position, CollisionRectangle);
             move.StopMovingIfBlocked(Position, oldPosition);
+
+            if (collision.TouchEnemy(CollisionRectangle) || Position.Y > 560)
+            {
+                Respawn(1);
+            }
 
             Health.Update();
         }
@@ -88,6 +95,12 @@ namespace PlatformerJarno.Entities
         public void Attack()
         {
             _bullets.Add(new Bullet(_content, this));
+        }
+
+        public void Respawn(int damageReceived)
+        {
+            Health.ReceiveDamage(damageReceived);
+            Position = _spawnLocation;
         }
 
         private void CreateAnimations(int width, int height)

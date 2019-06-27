@@ -62,7 +62,7 @@ namespace PlatformerJarno.Utilities
         {
             for (int i = 0; i < Amount; i++)
             {
-                _heartsPositions[i] = new Vector2(_entity.Position.X - 2 * _scale + (17 * i * _scale), _entity.Position.Y - 20 * _scale);
+                _heartsPositions[i] = new Vector2((_entity.Position.X - 2 * _scale) - 10 + (17 * i * _scale), _entity.Position.Y - 20 * _scale);
             }
         }
     }

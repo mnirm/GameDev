@@ -43,7 +43,7 @@ namespace PlatformerJarno
 
         protected override void UnloadContent()
         {
-            GameStateManager.Instance.UnloadContent();
+
         }
 
         protected override void Update(GameTime gameTime)

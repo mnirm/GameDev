@@ -76,7 +76,10 @@ namespace PlatformerJarno.States.Levels
         {
             foreach (var entity in entities)
             {
+                if (entity.Health.Amount <= 0) entities.Remove(entity);
+
                 entity.Update(gameTime);
+
                 if (entity is Player)
                 {
                     camera.MoveCamera(new Vector2(entity.CollisionRectangle.X - (1920 / 2 / camera.Zoom), 0));
