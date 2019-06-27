@@ -47,7 +47,14 @@ namespace PlatformerJarno.States.Levels
 
         public override void UnloadContent()
         {
-            GameStateManager.Instance.UnloadContent();
+            try
+            {
+                GameStateManager.Instance.UnloadContent();
+            }
+            catch (Exception e)
+            {
+
+            }
         }
     }
 }

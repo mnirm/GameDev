@@ -29,6 +29,7 @@ namespace PlatformerJarno.Terrain
                 );
             }
         }
+
         // Constructor
         public Portal(ContentManager content, string path, Vector2 position)
         {
@@ -40,9 +41,9 @@ namespace PlatformerJarno.Terrain
             {
                 _portalAnimation.AddFrame(new Rectangle(i * 20, 0, 20,20));
             }
-            _sprite.ViewRectangle = new Rectangle(0, 0, 20, 20);
         }
 
+        // Methods
         public void Draw(SpriteBatch spriteBatch)
         {
             _sprite.Draw(spriteBatch);
@@ -51,6 +52,7 @@ namespace PlatformerJarno.Terrain
         public void Update(GameTime gameTime)
         {
             _portalAnimation.Update(gameTime);
+            _sprite.ViewRectangle = _portalAnimation.CurrentFrame.SourceRectangle;
         }
     }
 }
