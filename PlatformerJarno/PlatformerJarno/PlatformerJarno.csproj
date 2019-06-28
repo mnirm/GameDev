@@ -88,6 +88,7 @@
     <Compile Include="States\Levels\Level2.cs" />
     <Compile Include="States\Menus\MainMenu.cs" />
     <Compile Include="States\Menus\MenuScreen.cs" />
+    <Compile Include="States\Menus\WinScreen.cs" />
     <Compile Include="Terrain\BitmapLoader.cs" />
     <Compile Include="Terrain\Block.cs" />
     <Compile Include="Terrain\Portal.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
     <Compile Include="Utilities\Camera2D.cs" />
+    <Compile Include="Utilities\Coin.cs" />
     <Compile Include="Utilities\Health.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\lvl1.png" />
     <None Include="Resources\test.png" />
     <None Include="Resources\map_test.png" />
   </ItemGroup>

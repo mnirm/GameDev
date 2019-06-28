@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PlatformerJarno.Collider;
 using PlatformerJarno.Entities;
+using PlatformerJarno.States.Menus;
 using PlatformerJarno.Terrain;
 
 namespace PlatformerJarno.States.Levels
@@ -15,6 +16,7 @@ namespace PlatformerJarno.States.Levels
     class Level2:Level
     {
         // Properties
+        private WinScreen _winScreen;
 
         // Constructor
         public Level2(GraphicsDevice graphicsDevice) : base(graphicsDevice)
@@ -36,6 +38,17 @@ namespace PlatformerJarno.States.Levels
         public override void UnloadContent()
         {
 
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            if (collision.TouchPortal(portal.CollisionRectangle))
+            {
+                _winScreen = new WinScreen(_graphicsDevice);
+                NextState(_winScreen);
+            }
         }
     }
 }

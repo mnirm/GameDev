@@ -27,7 +27,7 @@ namespace PlatformerJarno.States.Levels
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();
-            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.map_test);
+            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.lvl1);
             terrain = terrainLoader.GetTerrain(content);
 
             entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(140, 20), entities, terrain, bullets));
