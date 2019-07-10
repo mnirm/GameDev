@@ -54,7 +54,12 @@ namespace PlatformerJarno.States.Levels
             spriteBatch.Begin(transformMatrix: camera.GetTransformationMatrix(_graphicsDevice));
             foreach (var block in terrain)
             {
-                block.Draw(spriteBatch);
+                if (block is BreakableBlock)
+                {
+                    var breakableBlock = block as BreakableBlock;
+                    breakableBlock.Draw(spriteBatch);
+                }
+                else block.Draw(spriteBatch);
             }
 
             portal.Draw(spriteBatch);

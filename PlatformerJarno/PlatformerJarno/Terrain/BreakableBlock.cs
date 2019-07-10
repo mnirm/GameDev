@@ -28,30 +28,34 @@ namespace PlatformerJarno.Terrain
         // Methods
         public void Draw(SpriteBatch spriteBatch)
         {
+            float percentage = (float) Health.Amount / _startHealth;
+
             if (Health.Amount == _startHealth)
             {
                 sprite.ViewRectangle = new Rectangle(0,0,20,20);
             }
-            else if (Health.Amount / _startHealth >= 0.8)
+            else if (percentage >= 0.8)
             {
                 sprite.ViewRectangle = new Rectangle(20, 0, 20, 20);
             }
-            else if (Health.Amount / _startHealth >= 0.6)
+            else if (percentage >= 0.6)
             {
                 sprite.ViewRectangle = new Rectangle(40, 0, 20, 20);
             }
-            else if (Health.Amount / _startHealth >= 0.4)
+            else if (percentage >= 0.4)
             {
                 sprite.ViewRectangle = new Rectangle(60, 0, 20, 20);
             }
-            else if (Health.Amount / _startHealth >= 0.2)
+            else if (percentage >= 0.2)
             {
                 sprite.ViewRectangle = new Rectangle(80, 0, 20, 20);
             }
-            else if (Health.Amount / _startHealth >= 0)
+            else if (percentage >= 0)
             {
                 sprite.ViewRectangle = new Rectangle(100, 0, 20, 20);
             }
+
+            base.Draw(spriteBatch);
         }       
     }
 }
