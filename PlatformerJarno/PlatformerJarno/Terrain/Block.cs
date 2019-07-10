@@ -34,7 +34,6 @@ namespace PlatformerJarno.Terrain
         {
             this.position = position;
             sprite = new Sprite(content, path, position);
-            
         }
 
         // Methods

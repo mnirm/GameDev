@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,6 +88,7 @@ namespace PlatformerJarno.Collider
 
         public void CollisionBullet()
         {
+            BulletIntoBreakableTerrain();
             BulletIntoTerrain();
             BulletIntoEntity();
         }
@@ -108,6 +110,27 @@ namespace PlatformerJarno.Collider
                 }
             }
             _bullets.OrderBy(x => x);
+        }
+
+        private void BulletIntoBreakableTerrain()
+        {
+            foreach (var block in _terrain)
+            {
+                foreach (var bullet in _bullets)
+                {
+                    if (block.CollisionRectangle.Intersects(bullet.CollisionRectangle))
+                    {
+                        if(block is BreakableBlock)
+                        {
+                            var breakableBlock = block as BreakableBlock;
+                            breakableBlock.Health.ReceiveDamage(1);
+                            if (breakableBlock.Health.Amount <= 0)
+                                _terrain.Remove(block);
+                        }
+                        _bullets.Remove(bullet);
+                    }
+                }
+            }
         }
 
         private void BulletIntoTerrain()

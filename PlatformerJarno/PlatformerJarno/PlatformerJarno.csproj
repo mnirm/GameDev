@@ -97,7 +97,7 @@
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
     <Compile Include="Utilities\Camera2D.cs" />
-    <Compile Include="Utilities\Coin.cs" />
+    <Compile Include="Utilities\Key.cs" />
     <Compile Include="Utilities\EntityHealth.cs" />
     <Compile Include="Utilities\Health.cs" />
   </ItemGroup>

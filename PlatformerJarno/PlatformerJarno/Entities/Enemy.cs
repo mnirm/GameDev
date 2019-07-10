@@ -46,7 +46,7 @@ namespace PlatformerJarno.Entities
             Health.Update();
             currentAnimation.Update(gameTime);
 
-            Timer(gameTime);
+            ChangeDirectionTimer(gameTime);
 
             if (facing == Facing.Left)
             {
@@ -63,13 +63,14 @@ namespace PlatformerJarno.Entities
             move.StopMovingIfBlocked(Position, oldPosition);
         }
 
-        private void Timer(GameTime gameTime)
+        private void ChangeDirectionTimer(GameTime gameTime)
         {
             float elapsed = (float) gameTime.ElapsedGameTime.TotalSeconds;
             _timer -= elapsed;
             if (_timer < 0)
             {
-                if (facing == Facing.Left) facing = Facing.Right;
+                if (facing == Facing.Left)
+                    facing = Facing.Right;
                 else facing = Facing.Left;
                 _timer = _TIMER;
             }

@@ -33,3 +33,4 @@ C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\obj\x86\Debug\Platfo
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\portal_spritesheet.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\protal.xnb
 C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\slime_spritesheet.xnb
+C:\Users\cools\code\GameDev\PlatformerJarno\PlatformerJarno\bin\Windows\x86\Debug\Content\block_spritesheet.xnb
