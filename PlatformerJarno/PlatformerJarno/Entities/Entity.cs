@@ -29,7 +29,7 @@ namespace PlatformerJarno.Entities
         // A good object-oriented practice is to program towards the interface and not the implementation.
         protected ICollection<Entity> Entities;
         public Vector2 Position { get; set; }
-        public Health Health { get; }
+        public EntityHealth Health { get; }
         public Rectangle CollisionRectangle
         {
             get
@@ -62,7 +62,7 @@ namespace PlatformerJarno.Entities
 
             move = new Moving(movementspeed);
             collision = new Collision(terrain, entities, bullets);
-            Health = new Health(health, content, this, scale);
+            Health = new EntityHealth(health, content, this, scale);
         }
 
         // Methods

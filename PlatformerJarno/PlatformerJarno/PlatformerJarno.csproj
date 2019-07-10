@@ -91,12 +91,14 @@
     <Compile Include="States\Menus\WinScreen.cs" />
     <Compile Include="Terrain\BitmapLoader.cs" />
     <Compile Include="Terrain\Block.cs" />
+    <Compile Include="Terrain\BreakableBlock.cs" />
     <Compile Include="Terrain\Portal.cs" />
     <Compile Include="Utilities\Bullet.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
     <Compile Include="Utilities\Camera2D.cs" />
     <Compile Include="Utilities\Coin.cs" />
+    <Compile Include="Utilities\EntityHealth.cs" />
     <Compile Include="Utilities\Health.cs" />
   </ItemGroup>
   <ItemGroup>
