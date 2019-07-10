@@ -9,7 +9,7 @@ using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno.Utilities
 {
-    class Coin : ICollision
+    class Key : ICollision
     {
         // Properties
         private Vector2 _position;
