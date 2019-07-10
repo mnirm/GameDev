@@ -101,6 +101,7 @@ namespace PlatformerJarno.Entities
         {
             Health.ReceiveDamage(damageReceived);
             Position = _spawnLocation;
+            _bullets.Clear();
         }
 
         private void CreateAnimations(int width, int height)
