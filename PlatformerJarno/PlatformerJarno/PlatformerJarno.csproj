@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\lvl2.png" />
     <None Include="Resources\lvl1.png" />
     <None Include="Resources\test.png" />
     <None Include="Resources\map_test.png" />

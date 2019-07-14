@@ -29,9 +29,10 @@ namespace PlatformerJarno.States.Levels
             entities = new List<Entity>();
             terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.lvl1);
             terrain = terrainLoader.GetTerrain(content);
-            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(140, 20), entities, terrain, bullets));
+            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(540, 80), entities, terrain, bullets));
+            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(660, 80), entities, terrain, bullets));
             player = new Player(content, "player_spritesheet", new Vector2(0,0), entities, terrain, bullets);
-            portal = new Portal(content, "portal_spritesheet", new Vector2(500,300));
+            portal = new Portal(content, "portal_spritesheet", new Vector2(40,120)); // 960,140
             collision = new Collision(terrain, entities, bullets);
         }
 

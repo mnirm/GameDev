@@ -87,7 +87,7 @@ namespace PlatformerJarno.States.Levels
 
                 if (entity is Player)
                 {
-                    camera.MoveCamera(new Vector2(entity.CollisionRectangle.X - (1920 / 2 / camera.Zoom), 0));
+                    camera.MoveCamera(new Vector2(entity.CollisionRectangle.X - (1920 / 2 / camera.Zoom), entity.CollisionRectangle.Y - (1080 / 2 / camera.Zoom)));
                     if(entity.Health.Amount <= 0)
                         NextState(new MainMenu(_graphicsDevice));
                 }

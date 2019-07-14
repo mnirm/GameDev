@@ -10,6 +10,7 @@ using PlatformerJarno.Collider;
 using PlatformerJarno.Entities;
 using PlatformerJarno.States.Menus;
 using PlatformerJarno.Terrain;
+using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.States.Levels
 {
@@ -21,17 +22,22 @@ namespace PlatformerJarno.States.Levels
         // Constructor
         public Level2(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
-
+            camera = new Camera2D(){Zoom = 6f};
         }
 
         // Methods
         public override void LoadContent(ContentManager content)
         {
             entities = new List<Entity>();
-            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.test);
+            terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.lvl2);
             terrain = terrainLoader.GetTerrain(content);
-            portal = new Portal(content, "portal_spritesheet", new Vector2(100,100));
-            player = new Player(content, "player_spritesheet", new Vector2(40, 0), entities, terrain, bullets);
+            portal = new Portal(content, "portal_spritesheet", new Vector2(380,420));
+            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(240, 20), entities, terrain, bullets));
+            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(540, 240), entities, terrain, bullets));
+            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(360, 200), entities, terrain, bullets));
+            entities.Add(new Enemy(content, "slime_spritesheet", new Vector2(140, 300), entities, terrain, bullets));
+
+            player = new Player(content, "player_spritesheet", new Vector2(20, 20), entities, terrain, bullets);
             collision = new Collision(terrain, entities, bullets);
         }
 

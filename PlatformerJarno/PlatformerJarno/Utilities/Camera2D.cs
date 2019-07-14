@@ -38,7 +38,7 @@ namespace PlatformerJarno.Utilities
         // Methods
         public void MoveCamera(Vector2 amount)
         {
-            if (Position.Y < 50) Position = amount;
+            Position = amount;
         }
 
         public Matrix GetTransformationMatrix(GraphicsDevice graphicsDevice)
