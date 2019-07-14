@@ -43,9 +43,13 @@ namespace PlatformerJarno.Terrain
             {
                 for (x = 0; x < _image.Width; x++)
                 {
-                    if (_coordinates[x, y] != 0)
+                    if (_coordinates[x, y] == -16777216)
                     {
                         AddBlock(content, "grassblok", x, y);
+                    }
+                    else if (_coordinates[x, y] == -1)
+                    {
+                        AddBreakableBlock(content, "block_spritesheet", x, y, 6);
                     }
                 }
             }
@@ -55,6 +59,11 @@ namespace PlatformerJarno.Terrain
         private void AddBlock(ContentManager content, string path, int x, int y)
         {
             _terrain.Add(new Block(content, path, new Vector2(x * 20, y * 20)));
+        }
+
+        private void AddBreakableBlock(ContentManager content, string path, int x, int y, int health)
+        {
+            _terrain.Add(new BreakableBlock(content, path, new Vector2(x *20, y * 20), health));
         }
     }
 }
