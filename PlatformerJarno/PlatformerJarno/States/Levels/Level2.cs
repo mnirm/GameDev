@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PlatformerJarno.Collider;
 using PlatformerJarno.Entities;
+using PlatformerJarno.Sprites;
 using PlatformerJarno.States.Menus;
 using PlatformerJarno.Terrain;
 using PlatformerJarno.Utilities;
@@ -28,6 +29,13 @@ namespace PlatformerJarno.States.Levels
         // Methods
         public override void LoadContent(ContentManager content)
         {
+            background = new Background(
+                new Sprite(content, "bg_lvl2", new Vector2(-250, -90), 1f),
+                new List<Sprite>(),
+                new List<Sprite>(),
+                new List<Vector2>()
+            );
+
             entities = new List<Entity>();
             terrainLoader = new BitmapLoader(PlatformerJarno.Properties.Resources.lvl2);
             terrain = terrainLoader.GetTerrain(content);

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using PlatformerJarno.States.Levels;
+using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.States.Menus
 {
@@ -16,6 +17,7 @@ namespace PlatformerJarno.States.Menus
         // Properties
         protected MouseState mouse;
         protected GraphicsDevice graphicsDevice;
+        protected Background background;
 
         // Constructor
         public MenuScreen(GraphicsDevice graphicsDevice) : base(graphicsDevice)
@@ -50,6 +52,7 @@ namespace PlatformerJarno.States.Menus
             spriteBatch.Begin();
             try
             {
+                background.Draw(spriteBatch);
                 DrawMenuItems(spriteBatch);
             }
             finally

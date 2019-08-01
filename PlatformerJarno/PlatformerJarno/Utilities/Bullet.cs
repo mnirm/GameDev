@@ -52,7 +52,7 @@ namespace PlatformerJarno.Utilities
                     shooter.Position.Y + 10
                 );
             }
-            _sprite = new Sprite(content, "bullet", _position, 0.08f);
+            _sprite = new Sprite(content, "bullet", _position, 0.04f);
         }
 
         // Methods

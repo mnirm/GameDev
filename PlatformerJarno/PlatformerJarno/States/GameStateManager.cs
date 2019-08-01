@@ -48,7 +48,7 @@ namespace PlatformerJarno.States
             {
                 _state.Draw(spriteBatch);
             }
-            finally
+            catch
             {
 
             }

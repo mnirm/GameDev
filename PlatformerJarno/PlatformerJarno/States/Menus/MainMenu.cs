@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using PlatformerJarno.Sprites;
 using PlatformerJarno.States.Levels;
 using PlatformerJarno.Utilities;
 
@@ -18,10 +19,11 @@ namespace PlatformerJarno.States.Menus
         private Button _play;
         private Button _setting;
         private Level1 _level1;
-
+        
         // Constructor
         public MainMenu(GraphicsDevice graphicsDevice) : base(graphicsDevice)
         {
+
         }
 
         // Methods
@@ -33,6 +35,12 @@ namespace PlatformerJarno.States.Menus
         public override void LoadContent(ContentManager content)
         {
             base.LoadContent(content);
+            background = new Background(
+                new Sprite(content, "B1011-1", Vector2.Zero, 4.2f), 
+                new List<Sprite>(), 
+                new List<Sprite>(),
+                new List<Vector2>()
+                );
             _play = new Button(content, "Buttons/button_play", new Vector2((_graphicsDevice.DisplayMode.Width / 2) - 450, 100));
             _play.Clicked += PlayClicked;
             _setting = new Button(content, "Buttons/button_settings", new Vector2((_graphicsDevice.DisplayMode.Width / 2) - 450, 400));

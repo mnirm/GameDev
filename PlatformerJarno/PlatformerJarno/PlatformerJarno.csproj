@@ -93,6 +93,7 @@
     <Compile Include="Terrain\Block.cs" />
     <Compile Include="Terrain\BreakableBlock.cs" />
     <Compile Include="Terrain\Portal.cs" />
+    <Compile Include="Utilities\Background.cs" />
     <Compile Include="Utilities\Bullet.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\ButtonEventArgs.cs" />
@@ -113,8 +114,6 @@
     <Content Include="Icon.ico" />
     <None Include="Resources\lvl2.png" />
     <None Include="Resources\lvl1.png" />
-    <None Include="Resources\test.png" />
-    <None Include="Resources\map_test.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

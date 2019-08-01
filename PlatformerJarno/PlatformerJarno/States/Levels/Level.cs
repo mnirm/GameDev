@@ -26,6 +26,7 @@ namespace PlatformerJarno.States.Levels
         protected Collision collision;
         protected Camera2D camera;
         protected BitmapLoader terrainLoader;
+        protected Background background;
 
         // Constructor
         public Level(GraphicsDevice graphicsDevice) : base(graphicsDevice)
@@ -52,6 +53,7 @@ namespace PlatformerJarno.States.Levels
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin(transformMatrix: camera.GetTransformationMatrix(_graphicsDevice));
+            background.Draw(spriteBatch);
             foreach (var block in terrain)
             {
                 if (block is BreakableBlock)
