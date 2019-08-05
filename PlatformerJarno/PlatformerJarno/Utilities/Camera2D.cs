@@ -9,6 +9,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlatformerJarno.Utilities
 {
+    // Class Camera2D
+    // Changes how the user sees the screen
+    // Able to zoom or rotate
+
     class Camera2D
     {
         // Properties

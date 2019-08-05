@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 
 namespace PlatformerJarno.Animations
 {
+    // Class Animation: Creates an animation from a spritesheet by going through the Update method it animates an image
+
     class Animation
     {
         // Properties

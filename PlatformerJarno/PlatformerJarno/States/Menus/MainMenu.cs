@@ -13,6 +13,8 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.States.Menus
 {
+    // Class MainMenu:
+    // Can cycle through different GameStates
     class MainMenu : MenuScreen
     {
         // Properties
@@ -42,7 +44,7 @@ namespace PlatformerJarno.States.Menus
                 new List<Vector2>()
                 );
             _play = new Button(content, "Buttons/button_play", new Vector2((_graphicsDevice.DisplayMode.Width / 2) - 450, 100));
-            _play.Clicked += PlayClicked;
+            _play.Clicked += PlayClicked; // Add method to event
             _setting = new Button(content, "Buttons/button_settings", new Vector2((_graphicsDevice.DisplayMode.Width / 2) - 450, 400));
             _setting.Clicked += SettingsClicked;
         }

@@ -11,6 +11,7 @@ using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno.Utilities
 {
+    // EntityHealth shows the health graphical
     class EntityHealth : Health
     {
         // Properties

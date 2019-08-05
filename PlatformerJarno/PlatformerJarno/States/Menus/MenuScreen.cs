@@ -12,6 +12,7 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.States.Menus
 {
+    // Class for menu screens able to add buttons and interact with an UI(user interface) through the MouseState
     abstract class MenuScreen : GameState
     {
         // Properties

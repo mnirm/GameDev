@@ -15,6 +15,9 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.Entities
 {
+    // Class entity
+    // Entity interacts with terrain, is able to move
+
     abstract class Entity : IMoveable, ICollision
     {
         // Properties

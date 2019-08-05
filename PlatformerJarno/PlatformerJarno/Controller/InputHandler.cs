@@ -31,7 +31,6 @@ namespace PlatformerJarno.Controller
         }
 
         //Method
-
         public void HandleInput()
         {
             KeyboardState state = Keyboard.GetState();

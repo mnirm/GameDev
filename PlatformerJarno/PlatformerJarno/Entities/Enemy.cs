@@ -13,6 +13,8 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.Entities
 {
+    // Enemy class
+    // Enemy moves automatically for a specific time in a direction then changes the direction after the timer is done
     class Enemy : Entity
     {
         // Properties

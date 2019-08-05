@@ -17,6 +17,7 @@ namespace PlatformerJarno.States
         private ContentManager _content;
         private IGameState _state;
         private static GameStateManager _instance;
+        // Able to call this static GameStateManager from everywhere
         public static GameStateManager Instance => _instance ?? (_instance = new GameStateManager());
 
         // Constructor

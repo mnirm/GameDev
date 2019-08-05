@@ -17,6 +17,9 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.Entities
 {
+    // Player class
+    // Player is able to move this entity => inputhandler class for moving this entity
+    // Player is also able to shoot bullets
 
     class Player : Entity
     {

@@ -11,6 +11,8 @@ using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno.Utilities
 {
+    // Used events
+    // Button class
     class Button
     {
         // Properties

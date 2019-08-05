@@ -11,6 +11,7 @@ using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno.Utilities
 {
+    // Health class able to give anything health substract from it add health to it and get the remaining health
     class Health
     {
         // Properties

@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace PlatformerJarno.Terrain
 {
+    // BitmapLoader class: Loads map in from a .png file converts every pixel to an Argb code via the Bitmap class
+    // Use this Argb code to distinguish colors in a .png => able to draw different blocks via different colours
+
     class BitmapLoader
     {
         // Properties
@@ -35,7 +38,6 @@ namespace PlatformerJarno.Terrain
         }
 
         // Methods
-
         public ICollection<Block> GetTerrain(ContentManager content)
         {
             int x, y;

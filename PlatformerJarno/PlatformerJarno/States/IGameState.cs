@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlatformerJarno.States
 {
+    // Interface for every state with basic methods like Update, Draw, etc...
     interface IGameState
     {
         void Initialize();

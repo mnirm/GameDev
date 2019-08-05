@@ -11,6 +11,7 @@ using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno.Terrain
 {
+    // Class Block: is a part from the terrain where entities can interact (aka collide with)
     class Block : ICollision
     {
         // Properties

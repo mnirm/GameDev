@@ -13,6 +13,8 @@ using PlatformerJarno.Sprites;
 
 namespace PlatformerJarno.Utilities
 {
+    // Bullet class
+    // Handles movement of the bullet
     class Bullet : ICollision
     {
         // Properties
@@ -35,7 +37,7 @@ namespace PlatformerJarno.Utilities
         }
 
         // Constructor
-        public Bullet(ContentManager content,Entity shooter)
+        public Bullet(ContentManager content, Entity shooter)
         {
             _facing = shooter.GetFacing();
             if (_facing == Entity.Facing.Right)

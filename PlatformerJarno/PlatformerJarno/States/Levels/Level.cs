@@ -15,6 +15,9 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.States.Levels
 {
+    // Class level: Inheritance from GameState
+    // Draws entities, terrain, background gets input, update method where entities/terrain updates.
+
     abstract class Level : GameState
     {
         // Properties

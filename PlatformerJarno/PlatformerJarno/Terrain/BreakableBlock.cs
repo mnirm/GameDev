@@ -11,6 +11,7 @@ using PlatformerJarno.Utilities;
 
 namespace PlatformerJarno.Terrain
 {
+    // Class BreakableBlock, entities are able to break this block through "killing"/getting it's health to 0 
     class BreakableBlock : Block
     {
         // Properties
